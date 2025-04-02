@@ -3,7 +3,7 @@ interface Array<T> {
 }
 
 Array.prototype.last = function() {
-    return this.length > 0 ? this.splice(-1)[0] : -1
+    return this.length > 0 ? this[this.length - 1] : -1
 };
 
 /**
