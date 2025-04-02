@@ -1,16 +1,12 @@
-declare global {
-    interface Array<T> {
-        last(): T | -1;
-    }
+interface Array<T> {
+    last(): T | -1;
 }
 
 Array.prototype.last = function() {
-    return this[this.length - 1] !== undefined ? this[this.length - 1] : -1
+    return this.length > 0 ? this.splice(-1)[0] : -1
 };
 
 /**
  * const arr = [1, 2, 3];
  * arr.last(); // 3
  */
-
-export {};
