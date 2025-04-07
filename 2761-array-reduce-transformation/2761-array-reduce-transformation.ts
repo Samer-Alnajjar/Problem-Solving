@@ -1,11 +1,11 @@
 type Fn = (accum: number, curr: number) => number
 
 function reduce(nums: number[], fn: Fn, init: number): number {
-    let value = init;
+    let acc = init;
 
-    for(let i = 0 ; i < nums.length; i++) {
-        value = fn((value), nums[i])
+    for(const num of nums) {
+        acc = fn(acc, num)
     }
 
-    return value;
+    return acc;
 };
