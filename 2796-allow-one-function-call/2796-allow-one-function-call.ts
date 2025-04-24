@@ -2,15 +2,14 @@ type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string
 type OnceFn = (...args: JSONValue[]) => JSONValue | undefined
 
 function once(fn: Function): OnceFn {
-    let called = false;
-
+    let calledOnce = false;
+    let result: any;
     
-    return function (...args: JSONValue[]) {
-        if(!called) {
-            called = true;
-            return fn(...args)
-        } else {
-            return undefined
+    return function (...args) {
+        if(!calledOnce) {
+            calledOnce = true;
+            result = fn(...args);
+            return result;
         }
     };
 }
