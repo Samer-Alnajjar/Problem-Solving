@@ -2,23 +2,13 @@ type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string
 type Obj = Record<string, JSONValue> | Array<JSONValue>;
 
 function chunk(arr: Obj[], size: number): Obj[][] {
-    let output = [],
-        subArr = [],
-        counter = size;
+    if(arr.length == 0) return [];
+    if(arr.length < size) return [arr];
+    let newArr = [];
 
-    if(size >= arr.length && arr.length > 0) return [arr];
-    if(arr.length === 0) return [];
-
-    for(let i = 0; i < arr.length; i++) {
-        subArr.push(arr[i]);
-        --counter;
-
-
-        if(counter === 0 || i === (arr.length - 1)) {
-            output.push(subArr);
-            counter = size;
-            subArr = [];
-        }
+    for(let i = 0; i < arr.length; i+=size) {
+        newArr.push(arr.slice(i, size+i));
     }
-    return output;
+
+    return newArr;
 };
