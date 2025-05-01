@@ -1,18 +1,18 @@
 class ArrayWrapper {
-    private nums: number[];
+    arr = [];
 
     constructor(nums: number[]) {
-        this.nums = nums
+        this.arr = [...nums];
     }
-    
+
     valueOf(): number {
-        return this.nums.reduce((acc, val) => acc + val, 0)
+        return this.arr.reduce((accumulator, curr) => accumulator + curr, 0);
     }
-    
+
     toString(): string {
-        return `[${this.nums.join(',')}]`
+        return `[${this.arr.join(',')}]`
     }
-};
+}
 
 /**
  * const obj1 = new ArrayWrapper([1,2]);
