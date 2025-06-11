@@ -1,19 +1,19 @@
 function containsNearbyDuplicate(nums: number[], k: number): boolean {
     let l = 0;
     let r = 0;
-    const seen = new Set<number>();
+    const obj: { [key: number]: boolean } = {};
 
     while (r < nums.length) {
         if (r - l > k) {
-            seen.delete(nums[l]);
+            delete obj[nums[l]];
             l++;
         }
 
-        if (seen.has(nums[r])) {
+        if (obj[nums[r]]) {
             return true;
         }
 
-        seen.add(nums[r]);
+        obj[nums[r]] = true;
         r++;
     }
 
