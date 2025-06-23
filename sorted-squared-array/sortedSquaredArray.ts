@@ -22,10 +22,7 @@ function sortedSquaredArray(array: number[]) {
         if(Math.abs(array[leftPointer]) < Math.abs(array[rightPointer])) {
             newArr.unshift(array[rightPointer] * array[rightPointer]);
             rightPointer--;
-        } else if(Math.abs(array[leftPointer]) > Math.abs(array[rightPointer])) {
-            newArr.unshift(array[leftPointer] * array[leftPointer]);
-            leftPointer++;
-        } else {
+        } else if(Math.abs(array[leftPointer]) >= Math.abs(array[rightPointer])) {
             newArr.unshift(array[leftPointer] * array[leftPointer]);
             leftPointer++;
         }
