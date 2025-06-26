@@ -1,3 +1,4 @@
+# Time O(n) | Space O(n)
 def tournamentWinner(competitions, result):
     winner = ''
     scores = {winner: 0}
