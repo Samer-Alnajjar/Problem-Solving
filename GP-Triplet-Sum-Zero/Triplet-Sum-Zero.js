@@ -1,7 +1,7 @@
 function tripletSumZero(arr) {
     arr.sort(function (a, b) { return a - b; });
     var triplets = [];
-    for (var i = 0; i < arr.length; i++) {
+    for (var i = 0; i < arr.length-2; i++) {
         if (i > 0 && arr[i] == arr[i - 1])
             continue; //Skip
         searchFoTriplets(arr, -arr[i], i + 1, triplets);
@@ -36,7 +36,7 @@ console.log(tripletSumZero([-5, 2, -1, -2, 3]));
 function findingTriplets(arr) {
     arr.sort(function (a, b) { return a - b; });
     var triplets = [];
-    for (var i = 0; i < arr.length; i++) {
+    for (var i = 0; i < arr.length-2; i++) {
         if (i > 0 && arr[i] == arr[i + 1])
             continue;
         var right = arr.length - 1;

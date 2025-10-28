@@ -2,7 +2,7 @@ function tripletSumZero(arr:number[]) {
     arr.sort((a, b) => a - b);
     let triplets: number[][] = []
 
-    for(let i = 0; i < arr.length; i++) {
+    for(let i = 0; i < arr.length-2; i++) {
         if(i > 0 && arr[i] == arr[i-1]) continue; //Skip
 
         searchFoTriplets(arr, -arr[i], i+1, triplets)
@@ -42,7 +42,7 @@ console.log(tripletSumZero([-5, 2, -1, -2, 3]));
 function findingTriplets(arr:number[]) {
     arr.sort((a, b) => a-b)
     let triplets:number[][] = []
-    for(let i = 0 ; i < arr.length; i++) {
+    for(let i = 0 ; i < arr.length-2; i++) {
         if(i > 0 && arr[i] == arr[i+1]) continue;
 
         let right = arr.length - 1;
