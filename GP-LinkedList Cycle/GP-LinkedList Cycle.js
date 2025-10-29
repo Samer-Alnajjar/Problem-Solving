@@ -13,10 +13,21 @@ function has_cycle(head) {
     while (fast != null && fast.next != null) {
         fast = fast.next.next;
         slow = slow.next;
-        if (fast === slow)
-            return true;
+        if (fast === slow) {
+            return findCycleLength(slow);
+        }
     }
     return false;
+}
+function findCycleLength(slow) {
+    var current = slow, length = 0;
+    while (true) {
+        current = current.next;
+        length++;
+        if (slow == current)
+            break;
+    }
+    return length;
 }
 var head = new CustomNode(1);
 head.next = new CustomNode(2);
