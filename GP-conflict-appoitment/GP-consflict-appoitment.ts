@@ -1,6 +1,6 @@
 class Interval {
     start: number
-    end: number 
+    end: number
 
     constructor( start:number,  end:number) {
         this.start = start;
@@ -10,7 +10,7 @@ class Interval {
     print() {
         console.log(`[${this.start}, ${this.end}]`)
     }
-} 
+}
 
 function canAttend(intervals: Interval[]) {
     intervals.sort((a,b) => a.start-b.start)
